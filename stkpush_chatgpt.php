@@ -25,7 +25,7 @@ $curl_post_data = array(
     'PartyB' => $shortcode,
     'PhoneNumber' => '254724412549', // The phone number sending the money
     'CallBackURL' => 'https://iestepas.com/callback',
-    'AccountReference' => 'LiveTest123',
+    'AccountReference' => '407',
     'TransactionDesc' => 'Payment for testing'
 );
 
