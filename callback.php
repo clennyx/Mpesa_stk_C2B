@@ -34,7 +34,7 @@ $Transactiondate = $data->Body->stkCallback->CallbackMetadata->Item[3]->Value;
 
 
 if ($ResultCode == 0) {
-	$stmts = $conn->prepare("INSERT INTO mpesa_trnsactions(MerchantRequestID,transaction_date,CheckoutRequestID,ResultCode,Amount,MpesaReceiptNumber,PhoneNumber,account_number) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmts = $conn->prepare("INSERT INTO mpesa_transactions(MerchantRequestID,transaction_date,CheckoutRequestID,ResultCode,Amount,MpesaReceiptNumber,PhoneNumber,account_number) VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 	$stmts->bind_param("ssssssss", $MerchantRequestID, $Transactiondate, $CheckoutRequestID, $ResultCode, $Amount, $TransactionId, $UserPhoneNumber, $accountRef);
 	$res = $stmts->execute();//get result
 	$stmts->close();
