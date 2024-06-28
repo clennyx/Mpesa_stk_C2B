@@ -1,52 +1,58 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 8.0.35, for Linux (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 27, 2024 at 09:53 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: sms_11236125
+-- ------------------------------------------------------
+-- Server version	8.0.35-0ubuntu0.22.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `sms_11236125`
+-- Table structure for table `mpesa_trnsactions`
 --
 
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `mpesa_trnsactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mpesa_trnsactions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `MerchantRequestID` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `CheckoutRequestID` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ResultCode` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Amount` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `account_number` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `transaction_date` date DEFAULT NULL,
+  `MpesaReceiptNumber` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `PhoneNumber` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `mpesa_transactions`
+-- Dumping data for table `mpesa_trnsactions`
 --
 
-CREATE TABLE `mpesa_transactions` (
-  `id` int(11) DEFAULT NULL,
-  `MerchantRequestID` varchar(255) DEFAULT NULL,
-  `CheckoutRequestID` varchar(255) DEFAULT NULL,
-  `ResultCode` varchar(255) DEFAULT NULL,
-  `Amount` varchar(255) DEFAULT NULL,
-  `MpesaReceiptNumber` varchar(255) DEFAULT NULL,
-  `PhoneNumber` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+LOCK TABLES `mpesa_trnsactions` WRITE;
+/*!40000 ALTER TABLE `mpesa_trnsactions` DISABLE KEYS */;
+INSERT INTO `mpesa_trnsactions` VALUES (18,'1c5b-4ba8-815c-ac45c57a3db01306799','ws_CO_28062024023654173724412549','0','1',NULL,NULL,'SFS4U9D40I','254724412549'),(19,'f1e2-4b95-a71d-b30d3cdbb7a7594688','ws_CO_28062024025202000724412549','0','1',NULL,'2024-06-28','SFS7U9G6KV','254724412549'),(20,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(21,'6e86-45dd-91ac-fd5d4178ab523358419','ws_CO_28062024025429741724412549','0','1',NULL,'2024-06-28','SFS6U9GQVE','254724412549'),(22,'f1e2-4b95-a71d-b30d3cdbb7a7594821','ws_CO_28062024025801442724412549','0','1',NULL,'2024-06-28','SFS4U9IL60','254724412549'),(23,'53e3-4aa8-9fe0-8fb5e4092cdd3355684','ws_CO_28062024030138023724412549','0','1',NULL,'2024-06-28','SFS0U9JOXA','254724412549'),(24,'53e3-4aa8-9fe0-8fb5e4092cdd3355706','ws_CO_28062024030636721724412549','0','1','254724412549','2024-06-28','SFS9U9JX5X','254724412549'),(25,'7071-4170-a0e4-8345632bad441304845','ws_CO_28062024031219896724412549','0','1',NULL,'2024-06-28','SFS2U9MDX0','254724412549'),(26,'7071-4170-a0e4-8345632bad441311006','ws_CO_28062024100046970724412549','0','1',NULL,'2024-06-28','SFS9UVAJK9','254724412549');
+/*!40000 ALTER TABLE `mpesa_trnsactions` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Dumping data for table `mpesa_transactions`
---
-
-INSERT INTO `mpesa_transactions` (`id`, `MerchantRequestID`, `CheckoutRequestID`, `ResultCode`, `Amount`, `MpesaReceiptNumber`, `PhoneNumber`) VALUES
-(1, '$data->Body->stkCallback->MerchantRequestID', '$data->Body->stkCallback->CheckoutRequestID', '$data->Body->stkCallback->ResultCode', '$data->Body->stkCallback->CallbackMetadata->Item[0]->Value', '$data->Body->stkCallback->CallbackMetadata->Item[1]->Value', '$data->Body->stkCallback->CallbackMetadata->Item[4]->Value'),
-(2, '$data->Body->stkCallback->MerchantRequestID', '$data->Body->stkCallback->CheckoutRequestID', '$data->Body->stkCallback->ResultCode', '$data->Body->stkCallback->CallbackMetadata->Item[0]->Value', '$data->Body->stkCallback->CallbackMetadata->Item[1]->Value', '$data->Body->stkCallback->CallbackMetadata->Item[4]->Value'),
-(3, NULL, NULL, NULL, NULL, NULL, NULL);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-28 13:34:01
